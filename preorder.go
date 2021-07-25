@@ -11,8 +11,9 @@ func preorderTraversal(root *TreeNode) []int {
 	result := []int{}
 
 	for current != nil {
+		result = append(result, current.Val)
+
 		if current.Left == nil {
-			result = append(result, current.Val)
 			current = current.Right
 		} else {
 			predecessor := current.Left
@@ -21,8 +22,7 @@ func preorderTraversal(root *TreeNode) []int {
 			}
 
 			if predecessor.Right == nil {
-				result = append(result, current.Val)
-				predecessor.Right = current
+				predecessor.Right = current.Right
 				current = current.Left
 			} else {
 				predecessor.Right = nil
