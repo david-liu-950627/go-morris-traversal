@@ -24,8 +24,8 @@ func inorderTraversal(root *TreeNode) []int {
 				predecessor.Right = current
 				current = current.Left
 			} else {
-				predecessor.Right = nil
 				result = append(result, current.Val)
+				predecessor.Right = nil
 				current = current.Right
 			}
 		}
